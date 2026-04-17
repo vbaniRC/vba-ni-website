@@ -1,0 +1,1055 @@
+<!DOCTYPE html>
+<html lang="hr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VBA NI - The Best Invoicing System for Small Businesses</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* ============================================
+           VBA NI - STRIPE-STYLE CSS
+           © 2025 R.C.
+           ============================================ */
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: linear-gradient(135deg, #0a2540 0%, #1a1a2e 100%);
+            color: #fff;
+            min-height: 100vh;
+        }
+        
+        /* NAVIGATION */
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 60px;
+            background: rgba(10, 37, 64, 0.95);
+            backdrop-filter: blur(10px);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
+        
+        .logo {
+            font-size: 24px;
+            font-weight: 700;
+            color: #fff;
+        }
+        
+        .logo span {
+            color: #635BFF;
+        }
+        
+        .nav-links {
+            display: flex;
+            gap: 40px;
+            list-style: none;
+        }
+        
+        .nav-links a {
+            color: #a3b8cc;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+        
+        .nav-links a:hover {
+            color: #fff;
+        }
+        
+        .btn-nav {
+            background: #635BFF;
+            color: #fff;
+            padding: 10px 24px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s;
+        }
+        
+        .btn-nav:hover {
+            background: #7B73FF;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 20px rgba(99, 91, 255, 0.4);
+        }
+        
+        /* HERO SECTION */
+        .hero {
+            padding: 180px 60px 100px;
+            text-align: center;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .hero h1 {
+            font-size: 64px;
+            font-weight: 700;
+            line-height: 1.1;
+            margin-bottom: 24px;
+            background: linear-gradient(135deg, #fff 0%, #a3b8cc 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .hero h1 span {
+            background: linear-gradient(135deg, #635BFF 0%, #00D4FF 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .hero p {
+            font-size: 20px;
+            color: #a3b8cc;
+            max-width: 600px;
+            margin: 0 auto 40px;
+            line-height: 1.6;
+        }
+        
+        .hero-buttons {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        
+        .btn-primary {
+            background: linear-gradient(135deg, #635BFF 0%, #7B73FF 100%);
+            color: #fff;
+            padding: 16px 40px;
+            border-radius: 12px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 18px;
+            transition: all 0.3s;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            border: none;
+            cursor: pointer;
+        }
+        
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 40px rgba(99, 91, 255, 0.5);
+        }
+        
+        .btn-secondary {
+            background: rgba(255, 255, 255, 0.1);
+            color: #fff;
+            padding: 16px 40px;
+            border-radius: 12px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 18px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            transition: all 0.3s;
+        }
+        
+        .btn-secondary:hover {
+            background: rgba(255, 255, 255, 0.2);
+            border-color: rgba(255, 255, 255, 0.4);
+        }
+        
+        /* FEATURES SECTION */
+        .features {
+            padding: 100px 60px;
+            background: #fff;
+        }
+        
+        .features h2 {
+            text-align: center;
+            font-size: 42px;
+            color: #0a2540;
+            margin-bottom: 60px;
+        }
+        
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 40px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .feature-card {
+            background: #f8fafc;
+            padding: 40px;
+            border-radius: 16px;
+            transition: all 0.3s;
+            border: 1px solid #e2e8f0;
+        }
+        
+        .feature-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+        }
+        
+        .feature-icon {
+            font-size: 48px;
+            margin-bottom: 20px;
+        }
+        
+        .feature-card h3 {
+            font-size: 22px;
+            color: #0a2540;
+            margin-bottom: 12px;
+        }
+        
+        .feature-card p {
+            color: #64748b;
+            line-height: 1.6;
+        }
+        
+        /* STATS SECTION */
+        .stats {
+            padding: 80px 60px;
+            background: linear-gradient(135deg, #635BFF 0%, #7B73FF 100%);
+        }
+        
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 40px;
+            max-width: 1000px;
+            margin: 0 auto;
+            text-align: center;
+        }
+        
+        .stat-item h3 {
+            font-size: 48px;
+            font-weight: 700;
+            margin-bottom: 8px;
+        }
+        
+        .stat-item p {
+            font-size: 16px;
+            opacity: 0.9;
+        }
+        
+        /* PRICING SECTION */
+        .pricing {
+            padding: 100px 60px;
+            background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+        }
+        
+        .pricing h2 {
+            text-align: center;
+            font-size: 42px;
+            color: #0a2540;
+            margin-bottom: 20px;
+        }
+        
+        .pricing > p {
+            text-align: center;
+            color: #64748b;
+            font-size: 18px;
+            margin-bottom: 60px;
+        }
+        
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 30px;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+        
+        .pricing-card {
+            background: #fff;
+            border-radius: 24px;
+            padding: 40px;
+            border: 2px solid #e2e8f0;
+            transition: all 0.3s;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .pricing-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+        }
+        
+        .pricing-card.featured {
+            border-color: #635BFF;
+            transform: scale(1.05);
+        }
+        
+        .pricing-card.featured:hover {
+            transform: scale(1.05) translateY(-5px);
+        }
+        
+        .pricing-badge {
+            position: absolute;
+            top: 20px;
+            right: -35px;
+            background: linear-gradient(135deg, #00D4FF 0%, #635BFF 100%);
+            color: #fff;
+            padding: 8px 50px;
+            font-size: 12px;
+            font-weight: 700;
+            text-transform: uppercase;
+            transform: rotate(45deg);
+        }
+        
+        .pricing-badge.free {
+            background: linear-gradient(135deg, #10B981 0%, #059669 100%);
+        }
+        
+        .pricing-card h3 {
+            font-size: 24px;
+            color: #0a2540;
+            margin-bottom: 10px;
+        }
+        
+        .pricing-card .price {
+            font-size: 48px;
+            font-weight: 700;
+            color: #0a2540;
+            margin-bottom: 5px;
+        }
+        
+        .pricing-card .price span {
+            font-size: 18px;
+            font-weight: 400;
+            color: #64748b;
+        }
+        
+        .pricing-card .price-note {
+            color: #10B981;
+            font-weight: 600;
+            font-size: 14px;
+            margin-bottom: 30px;
+        }
+        
+        .pricing-card ul {
+            list-style: none;
+            margin-bottom: 30px;
+        }
+        
+        .pricing-card ul li {
+            padding: 12px 0;
+            color: #64748b;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            border-bottom: 1px solid #f1f5f9;
+        }
+        
+        .pricing-card ul li:last-child {
+            border-bottom: none;
+        }
+        
+        .pricing-card ul li::before {
+            content: "✓";
+            color: #10B981;
+            font-weight: bold;
+            font-size: 16px;
+        }
+        
+        .pricing-card ul li.disabled {
+            color: #cbd5e1;
+        }
+        
+        .pricing-card ul li.disabled::before {
+            content: "✕";
+            color: #cbd5e1;
+        }
+        
+        .btn-pricing {
+            display: block;
+            width: 100%;
+            padding: 16px;
+            border-radius: 12px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 16px;
+            text-align: center;
+            transition: all 0.3s;
+        }
+        
+        .btn-pricing.primary {
+            background: linear-gradient(135deg, #635BFF 0%, #7B73FF 100%);
+            color: #fff;
+        }
+        
+        .btn-pricing.primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(99, 91, 255, 0.4);
+        }
+        
+        .btn-pricing.secondary {
+            background: #f1f5f9;
+            color: #0a2540;
+        }
+        
+        .btn-pricing.secondary:hover {
+            background: #e2e8f0;
+        }
+        
+        /* GLOBAL PAYMENT SECTION */
+        .payment-section {
+            padding: 100px 60px;
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+        }
+        
+        .payment-section h2 {
+            text-align: center;
+            font-size: 42px;
+            margin-bottom: 20px;
+        }
+        
+        .payment-section > p {
+            text-align: center;
+            color: #a3b8cc;
+            font-size: 18px;
+            margin-bottom: 60px;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .payment-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+        
+        .payment-info {
+            padding: 40px;
+        }
+        
+        .payment-info h3 {
+            font-size: 28px;
+            margin-bottom: 20px;
+        }
+        
+        .payment-info p {
+            color: #a3b8cc;
+            line-height: 1.8;
+            margin-bottom: 30px;
+        }
+        
+        .payment-methods {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+            margin-bottom: 30px;
+        }
+        
+        .payment-method {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 15px 25px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.3s;
+        }
+        
+        .payment-method:hover {
+            background: rgba(255, 255, 255, 0.15);
+            border-color: rgba(255, 255, 255, 0.2);
+        }
+        
+        .payment-features {
+            list-style: none;
+        }
+        
+        .payment-features li {
+            padding: 12px 0;
+            color: #a3b8cc;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        
+        .payment-features li::before {
+            content: "✓";
+            color: #00D4FF;
+            font-weight: bold;
+            font-size: 18px;
+        }
+        
+        .payment-card {
+            background: linear-gradient(135deg, #1e3a5f 0%, #0d2137 100%);
+            border-radius: 24px;
+            padding: 40px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+        }
+        
+        .payment-card-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 30px;
+        }
+        
+        .payment-card-header h4 {
+            font-size: 18px;
+            color: #a3b8cc;
+        }
+        
+        .card-logos {
+            display: flex;
+            gap: 10px;
+        }
+        
+        .card-logo {
+            background: rgba(255, 255, 255, 0.9);
+            padding: 8px 12px;
+            border-radius: 6px;
+            font-weight: 700;
+            font-size: 12px;
+            color: #0a2540;
+        }
+        
+        .card-logo.visa {
+            background: linear-gradient(135deg, #1a1f71 0%, #1a1f71 100%);
+            color: #fff;
+        }
+        
+        .card-logo.mastercard {
+            background: linear-gradient(135deg, #eb001b 0%, #f79e1b 100%);
+            color: #fff;
+        }
+        
+        .card-logo.amex {
+            background: linear-gradient(135deg, #006fcf 0%, #006fcf 100%);
+            color: #fff;
+        }
+        
+        .payment-form {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+        
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+        
+        .form-group label {
+            font-size: 14px;
+            color: #a3b8cc;
+            font-weight: 500;
+        }
+        
+        .form-group input {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            padding: 14px 16px;
+            color: #fff;
+            font-size: 16px;
+            transition: all 0.3s;
+        }
+        
+        .form-group input:focus {
+            outline: none;
+            border-color: #635BFF;
+            background: rgba(255, 255, 255, 0.08);
+        }
+        
+        .form-group input::placeholder {
+            color: #64748b;
+        }
+        
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+        }
+        
+        .btn-pay {
+            background: linear-gradient(135deg, #00D4FF 0%, #635BFF 100%);
+            color: #fff;
+            padding: 16px;
+            border-radius: 12px;
+            font-weight: 600;
+            font-size: 16px;
+            border: none;
+            cursor: pointer;
+            transition: all 0.3s;
+            margin-top: 10px;
+        }
+        
+        .btn-pay:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(0, 212, 255, 0.4);
+        }
+        
+        .secure-badge {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            margin-top: 20px;
+            color: #64748b;
+            font-size: 14px;
+        }
+        
+        .secure-badge::before {
+            content: "🔒";
+        }
+        
+        /* CURRENCIES SECTION */
+        .currencies {
+            padding: 60px;
+            background: #0a2540;
+            text-align: center;
+        }
+        
+        .currencies h3 {
+            font-size: 18px;
+            color: #64748b;
+            margin-bottom: 30px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+        
+        .currency-grid {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            flex-wrap: wrap;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .currency-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            color: #a3b8cc;
+            font-weight: 500;
+        }
+        
+        .currency-flag {
+            font-size: 24px;
+        }
+        
+        /* DOWNLOAD SECTION */
+        .download {
+            padding: 100px 60px;
+            background: #0a2540;
+            text-align: center;
+        }
+        
+        .download h2 {
+            font-size: 42px;
+            margin-bottom: 20px;
+        }
+        
+        .download > p {
+            font-size: 18px;
+            color: #a3b8cc;
+            margin-bottom: 40px;
+        }
+        
+        .download-box {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 16px;
+            padding: 40px;
+            max-width: 500px;
+            margin: 0 auto;
+        }
+        
+        .download-box h3 {
+            font-size: 24px;
+            margin-bottom: 10px;
+        }
+        
+        .download-box .version {
+            color: #635BFF;
+            font-size: 14px;
+            margin-bottom: 20px;
+        }
+        
+        .download-box ul {
+            text-align: left;
+            list-style: none;
+            margin-bottom: 30px;
+        }
+        
+        .download-box ul li {
+            padding: 8px 0;
+            color: #a3b8cc;
+        }
+        
+        .download-box ul li::before {
+            content: "✓ ";
+            color: #00D4FF;
+            font-weight: bold;
+        }
+        
+        /* FOOTER */
+        footer {
+            padding: 40px 60px;
+            background: #0a2540;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            text-align: center;
+            color: #64748b;
+        }
+        
+        footer a {
+            color: #a3b8cc;
+            text-decoration: none;
+        }
+        
+        /* RESPONSIVE */
+        @media (max-width: 968px) {
+            .payment-container {
+                grid-template-columns: 1fr;
+            }
+            
+            .pricing-card.featured {
+                transform: scale(1);
+            }
+            
+            .pricing-card.featured:hover {
+                transform: translateY(-5px);
+            }
+        }
+        
+        @media (max-width: 768px) {
+            nav {
+                padding: 15px 20px;
+            }
+            
+            .nav-links {
+                display: none;
+            }
+            
+            .hero {
+                padding: 140px 20px 60px;
+            }
+            
+            .hero h1 {
+                font-size: 36px;
+            }
+            
+            .hero p {
+                font-size: 16px;
+            }
+            
+            .features, .download, .payment-section, .pricing {
+                padding: 60px 20px;
+            }
+            
+            .stats-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .form-row {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- NAVIGATION -->
+    <nav>
+        <div class="logo">VBA <span>NI</span></div>
+        <ul class="nav-links">
+            <li><a href="#features">Features</a></li>
+            <li><a href="#pricing">Pricing</a></li>
+            <li><a href="#payment">Payment</a></li>
+            <li><a href="#download">Download</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+        <a href="#download" class="btn-nav">Download Free</a>
+    </nav>
+
+    <!-- HERO SECTION -->
+    <section class="hero">
+        <h1>The Best <span>Invoicing System</span> for Small Businesses</h1>
+        <p>VBA NI © 2025 R.C. — Professional invoicing, fiscalization, and business management. 14 languages. No monthly fees. Lite version forever free.</p>
+        <div class="hero-buttons">
+            <a href="#download" class="btn-primary">
+                ⬇️ Download Lite (FREE)
+            </a>
+            <a href="#pricing" class="btn-secondary">
+                Compare Versions
+            </a>
+        </div>
+    </section>
+
+    <!-- FEATURES SECTION -->
+    <section class="features" id="features">
+        <h2>Everything You Need</h2>
+        <div class="features-grid">
+            <div class="feature-card">
+                <div class="feature-icon">🧾</div>
+                <h3>Professional Invoices</h3>
+                <p>Create beautiful, professional invoices in seconds. PDF export and email sending included.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">🇭🇷</div>
+                <h3>Fiscalization 2.0</h3>
+                <p>Croatian fiscalization ready. JIR, ZKI codes. Full compliance with tax regulations.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">🌍</div>
+                <h3>14 Languages</h3>
+                <p>HR, EN, DE, ES, IT, FR, PL, TR, SW, RU and more. Perfect for international business.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">📊</div>
+                <h3>Dashboard & Reports</h3>
+                <p>Real-time analytics, debtors tracking, KPR book. Full business overview.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">💳</div>
+                <h3>HUB-3 & Swiss QR</h3>
+                <p>Payment barcodes for Croatia (HUB-3) and Switzerland (QR-Rechnung) built-in.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">💰</div>
+                <h3>Lite = FREE</h3>
+                <p>Lite version is completely free. Forever. No subscriptions. No hidden costs.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- STATS SECTION -->
+    <section class="stats">
+        <div class="stats-grid">
+            <div class="stat-item">
+                <h3>14</h3>
+                <p>Languages</p>
+            </div>
+            <div class="stat-item">
+                <h3>0€</h3>
+                <p>Lite Version</p>
+            </div>
+            <div class="stat-item">
+                <h3>100%</h3>
+                <p>Excel VBA</p>
+            </div>
+            <div class="stat-item">
+                <h3>2025</h3>
+                <p>Latest Version</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- PRICING SECTION -->
+    <section class="pricing" id="pricing">
+        <h2>Choose Your Plan</h2>
+        <p>Start free with Lite, upgrade anytime to Pro for advanced features.</p>
+        
+        <div class="pricing-grid">
+            <!-- LITE VERSION - FREE -->
+            <div class="pricing-card">
+                <div class="pricing-badge free">FREE</div>
+                <h3>VBA NI Lite</h3>
+                <div class="price">0€ <span>/ forever</span></div>
+                <div class="price-note">✓ Free forever, no credit card required</div>
+                <ul>
+                    <li>Up to 50 invoices</li>
+                    <li>5 languages (HR, EN, DE, IT, FR)</li>
+                    <li>Basic PDF export</li>
+                    <li>Email sending</li>
+                    <li>HUB-3 barcode</li>
+                    <li>Basic dashboard</li>
+                    <li class="disabled">Fiscalization 2.0</li>
+                    <li class="disabled">Swiss QR-Rechnung</li>
+                    <li class="disabled">KPR Book</li>
+                    <li class="disabled">Priority support</li>
+                </ul>
+                <a href="#download" class="btn-pricing secondary">Download Free</a>
+            </div>
+            
+            <!-- PRO VERSION -->
+            <div class="pricing-card featured">
+                <div class="pricing-badge">POPULAR</div>
+                <h3>VBA NI Pro</h3>
+                <div class="price">49€ <span>/ one-time</span></div>
+                <div class="price-note">✓ Pay once, use forever</div>
+                <ul>
+                    <li>Unlimited invoices</li>
+                    <li>All 14 languages</li>
+                    <li>Advanced PDF export</li>
+                    <li>Email templates</li>
+                    <li>HUB-3 barcode</li>
+                    <li>Full dashboard & reports</li>
+                    <li>Fiscalization 2.0 (Croatia)</li>
+                    <li>Swiss QR-Rechnung</li>
+                    <li>KPR Book</li>
+                    <li>Debtors management</li>
+                </ul>
+                <a href="#payment" class="btn-pricing primary">Get Pro — 49€</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- GLOBAL CREDIT CARD PAYMENT SECTION -->
+    <section class="payment-section" id="payment">
+        <h2>💳 Global Credit Card Payment</h2>
+        <p>Accept payments from customers worldwide. Integrated payment solutions for your invoices.</p>
+        
+        <div class="payment-container">
+            <!-- Left: Payment Info -->
+            <div class="payment-info">
+                <h3>Accept Payments Globally</h3>
+                <p>VBA NI integrates with leading payment providers to help you get paid faster. Add payment links directly to your invoices and let customers pay with their preferred method.</p>
+                
+                <div class="payment-methods">
+                    <div class="payment-method">
+                        <span>💳 Stripe</span>
+                    </div>
+                    <div class="payment-method">
+                        <span>🅿️ PayPal</span>
+                    </div>
+                    <div class="payment-method">
+                        <span>🏦 Bank Transfer</span>
+                    </div>
+                </div>
+                
+                <ul class="payment-features">
+                    <li>Visa, Mastercard, Amex accepted</li>
+                    <li>135+ currencies supported</li>
+                    <li>Instant payment notifications</li>
+                    <li>Automatic invoice reconciliation</li>
+                    <li>PCI DSS compliant security</li>
+                    <li>Low transaction fees</li>
+                </ul>
+            </div>
+            
+            <!-- Right: Payment Card Demo -->
+            <div class="payment-card">
+                <div class="payment-card-header">
+                    <h4>Secure Payment</h4>
+                    <div class="card-logos">
+                        <span class="card-logo visa">VISA</span>
+                        <span class="card-logo mastercard">MC</span>
+                        <span class="card-logo amex">AMEX</span>
+                    </div>
+                </div>
+                
+                <form class="payment-form">
+                    <div class="form-group">
+                        <label>Card Number</label>
+                        <input type="text" placeholder="1234 5678 9012 3456" maxlength="19">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label>Cardholder Name</label>
+                        <input type="text" placeholder="John Doe">
+                    </div>
+                    
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>Expiry Date</label>
+                            <input type="text" placeholder="MM/YY" maxlength="5">
+                        </div>
+                        <div class="form-group">
+                            <label>CVV</label>
+                            <input type="text" placeholder="123" maxlength="4">
+                        </div>
+                    </div>
+                    
+                    <button type="button" class="btn-pay">
+                        Pay 49€ — Get VBA NI Pro
+                    </button>
+                    
+                    <div class="secure-badge">
+                        Secured with 256-bit SSL encryption
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+    
+    <!-- SUPPORTED CURRENCIES -->
+    <section class="currencies">
+        <h3>Supported Currencies</h3>
+        <div class="currency-grid">
+            <div class="currency-item">
+                <span class="currency-flag">🇪🇺</span>
+                <span>EUR</span>
+            </div>
+            <div class="currency-item">
+                <span class="currency-flag">🇺🇸</span>
+                <span>USD</span>
+            </div>
+            <div class="currency-item">
+                <span class="currency-flag">🇬🇧</span>
+                <span>GBP</span>
+            </div>
+            <div class="currency-item">
+                <span class="currency-flag">🇨🇭</span>
+                <span>CHF</span>
+            </div>
+            <div class="currency-item">
+                <span class="currency-flag">🇵🇱</span>
+                <span>PLN</span>
+            </div>
+            <div class="currency-item">
+                <span class="currency-flag">🇭🇷</span>
+                <span>EUR</span>
+            </div>
+            <div class="currency-item">
+                <span class="currency-flag">🇹🇷</span>
+                <span>TRY</span>
+            </div>
+            <div class="currency-item">
+                <span class="currency-flag">🌍</span>
+                <span>135+ more</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- DOWNLOAD SECTION -->
+    <section class="download" id="download">
+        <h2>Download VBA NI Lite — FREE</h2>
+        <p>Get started in minutes. Works with Microsoft Excel 2016 and later.</p>
+        <div class="download-box">
+            <h3>🎁 VBA NI Lite</h3>
+            <div class="version">Version 1.0 | April 2026 | FREE</div>
+            <ul>
+                <li>Up to 50 invoices</li>
+                <li>5 languages (HR, EN, DE, IT, FR)</li>
+                <li>PDF export</li>
+                <li>Email sending</li>
+                <li>HUB-3 barcode generator</li>
+                <li>Basic dashboard</li>
+                <li>Free forever — no strings attached</li>
+            </ul>
+            <a href="downloads/VBA_NI_Lite_v1.0.xlsm" class="btn-primary" download>
+                ⬇️ Download Lite FREE (2.5 MB)
+            </a>
+            <p style="margin-top: 20px; font-size: 14px; color: #64748b;">
+                Need more features? <a href="#pricing" style="color: #635BFF;">Upgrade to Pro</a>
+            </p>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer id="contact">
+        <p>VBA NI © 2025 R.C. — The Best Invoicing System for Small Businesses</p>
+        <p style="margin-top: 10px;">
+            <a href="mailto:info@vba-ni.com">info@vba-ni.com</a> | 
+            Made with ❤️ in Croatia
+        </p>
+    </footer>
+</body>
+</html>
