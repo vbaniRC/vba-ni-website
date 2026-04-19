@@ -4,13 +4,10 @@
   <meta charset="UTF-8" />
   <title>A•BASA</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400&display=swap" rel="stylesheet">
   <style>
     :root {
       --accent: #111111;
       --accent-soft: #555555;
-      --accent-light: #888888;
     }
 
     * {
@@ -28,40 +25,19 @@
       flex-direction: column;
     }
 
-    /* TOP BAR - Logo s taglineom */
     .top-bar {
       padding: 18px 28px;
-      display: flex;
-      flex-direction: column;
-      gap: 4px;
-    }
-
-    .logo-container {
-      display: flex;
-      flex-direction: column;
-      gap: 2px;
     }
 
     .logo {
       font-weight: 600;
       letter-spacing: 0.12em;
-      font-size: 14px;
+      font-size: 21px;  /* 14px × 1.5 = 21px (50% veći) */
       text-transform: uppercase;
       border: 1px solid #e0e0e0;
-      padding: 6px 12px;
+      padding: 8px 14px;
       border-radius: 999px;
       display: inline-block;
-      width: fit-content;
-    }
-
-    .logo-tagline {
-      font-family: 'Cormorant Garamond', Georgia, serif;
-      font-size: 11px;
-      font-weight: 300;
-      letter-spacing: 0.08em;
-      color: var(--accent-light);
-      padding-left: 4px;
-      font-style: italic;
     }
 
     .hero {
@@ -75,8 +51,8 @@
     }
 
     .hero-title {
-      font-size: clamp(18px, 4vw, 40px);
-      font-weight: 400;
+      font-size: clamp(14px, 2vw, 20px);  /* 50% manji (bilo 28-40px, sada 14-20px) */
+      font-weight: 600;
       letter-spacing: 0.08em;
       text-transform: uppercase;
       margin-bottom: 10px;
@@ -127,6 +103,9 @@
       .top-bar {
         padding: 14px 18px;
       }
+      .logo {
+        font-size: 18px;
+      }
       .footer {
         text-align: center;
       }
@@ -135,9 +114,7 @@
 </head>
 <body>
   <header class="top-bar">
-    <div class="logo-container">
-      <span class="logo">A•BASA</span>
-    </div>
+    <span class="logo">A•BASA</span>
   </header>
 
   <main class="hero">
